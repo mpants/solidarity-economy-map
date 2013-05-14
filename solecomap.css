@@ -1,0 +1,250 @@
+body {
+	font-size: 12px;
+	font-family: 'Armata', sans-serif;
+	background: #309080 url('/haw-river.jpg') no-repeat fixed left;
+	background-size: 100% 100%;
+	overflow-x: hidden;
+}
+
+#wrapper {
+	width: 85%;
+	min-width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	z-index:200;
+	height:1px;
+}
+#map-canvas {
+	width: 101.2%;
+	margin-left: -7px;
+	height: 550px;
+	float: left;
+	border-top: 2px solid #777;
+	border-bottom: 2px solid #777;
+	border-right: 1px solid #777;
+	border-left: 1px solid #777;
+	clear: both;
+	-webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,1);
+	box-shadow: 1px 1px 4px 0px rgba(0,0,0,1);
+	z-index:500;
+}
+
+#top-text {	
+	color:#000;
+	position:absolute;
+	z-index:505;
+	top:0px;
+	left:0px;
+	font-size:15px;
+	border: solid 1px #555;
+	padding-left:10px;
+	padding-right:10px;
+	background:#CCEECC;
+	opacity:.9;
+}
+#in-map {
+	background:#309080;
+	position: absolute;
+	z-index: 505;
+	top:30px;
+	width:200px;
+	height:430px;
+	left:30px;
+	padding:10px;
+	border: solid 1px #999;
+	opacity:.8;
+	
+}
+#header {
+
+	margin-left: auto;
+	margin-right: auto;
+	width: 98%;
+	max-width: 1100px;
+	color: #fff;
+}
+
+#headertext {
+	float: left;
+	min-width: 290px;
+	font-size: 14px;
+	margin-left:30px;
+	margin-bottom: 5px;
+	padding: 7px;
+	color: #000;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	background-color: #cec;
+	background-url: http ://api.thumbr.it/whitenoise-361x370.png?background=#cceeccff&noise=cccacc&density=29&opacity=41;
+	-webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+}
+
+#tagline {
+	font-size: 15px;
+}
+
+#projecttext {
+	font-size: 10px;
+}
+#projectlink {
+	font-size: 10px;
+	text-decoration: none;
+}
+
+.about {
+	float: left;
+	min-width: 200px;
+	font-size: 10px;
+	width: 31%;
+	font-weight: bold;
+}
+
+.about a {
+	color: #FFFA12;
+	text-decoration: none;
+}
+
+#citynav {
+	float: right;
+	min-width: 420px;
+	font-size: 12px;
+	padding: 7px;
+	margin-bottom: 10px;
+	margin-top: 23px;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	-webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	background: #208070;
+}
+
+#main {
+	clear: both;
+	padding-top: 10px;
+	font-size: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1100px;
+	color: #fff;
+	z-index:200;
+}
+
+#main-nav {
+	color: #fff;
+	float: left;
+	width: 400px;
+	padding-left: 10px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	margin-right: 50px;
+	z-index: 506;
+	position:absolute;
+	top:570px;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	-webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	background: #208070;
+}
+#nav-container {
+	height: 190px;
+}
+
+#nav-label-top {
+	font-size: 12px;
+	padding-bottom: 5px;
+	padding-left: 30px;
+}
+
+.nav-label {
+	font-size: 14px;
+	padding-bottom: 5px;
+	padding-top: 10px;
+}
+
+.navlinks a {
+	color: #FFFA12;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.navlinks a:hover {
+	color: #d2aa52;
+	text-decoration: none;
+}
+
+#nav-column-first {
+	float: left;
+	width: 130px;
+	padding-left: 10px;
+}
+
+#nav-column {
+	float: left;
+	width: 200px;
+}
+#nav-column-last {
+	float: left;
+	padding-left: 30px;
+	width: 180px;
+}
+#main-content {
+	color: #000;
+	float: left;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	background-color: #cec;
+	background-url: http ://api.thumbr.it/whitenoise-361x370.png?background=#cceeccff&noise=cccacc&density=29&opacity=41;
+	-webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
+	padding-left: 10px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	width: 620px;
+}
+
+#results {
+	float: left;
+	height: 180px;
+	overflow-y: auto;
+	padding-left: 5px;
+	padding-top: 10px;
+}
+
+.name {
+	color: rgb(255,50,13);
+	text-decoration: none;
+	font-weight: bold;
+}
+.name a:visited {
+	color: rgb(255,50,13);
+	text-decoration: none;
+	font-weight: bold;
+}
+.name a:active {
+	color: rgb(255,50,13);
+	text-decoration: none;
+	font-weight: bold;
+}
+.name a:hover {
+	color: rgb(255,70,33);
+	text-decoration: none;
+	font-weight: bold;
+}
+

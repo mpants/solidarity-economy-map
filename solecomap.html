@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<meta name="description" content="" />
+		<meta name="author" content="Matt Burawski" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+		<title>Piedmont Solidarty Economy Map - Identifying An Alternative</title>
+		<meta name="description" content="Identifies and maps the businesses, organizations, and resources engaging in alternative and humane economic practices in the Piedmont Area (Carrboro, Chapel Hill, Durham, Hillsborough, Pittsboro, Saxapahaw)." />
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-35156355-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+	</head>
+	<body>
+		<link rel="stylesheet" href="http://solidaritypiedmont.org/solecomap.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" href="reveal.css"/>
+
+		<script src="/jquery.min.js" type="text/javascript"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js" defer async></script>
+		<script src="//www.google.com/jsapi?key=AIzaSyDkbZmlojVJ6CVwF5W4BGLwf4tbcouNlt4"></script>
+		<script type="text/javascript"
+		src="https://maps.google.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDKH3frmQ6MyZrwjCbCTb5gXYGaLX2DE9E"></script>
+		<script src="/jquery.reveal.js" type="text/javascript"></script>
+		<script src="/solecomap.js" type="text/javascript"></script>
+
+		<div id="myModal" class="reveal-modal">
+			<h1>Explore Your Living Community</h1>
+			<p>
+				This map is a growing record of the businesses, nonprofits, and public places that provide ways to meet our needs without big corporations.  More than a "buy local" movement, it identifies the practices existing in your community that
+				are planting the seeds of a more sustainable people-and-planet economy.
+			</p>
+			<p>
+				Use the navigation at the top right to zoom to a specific region, or check out the drop-down boxes that let you search
+				by <strong>Need</strong> you want an alternative way to meet, by economic <strong>Practices</strong> that these groups adopt, or by <strong>Type</strong> of organization.
+			</p>
+			<p>
+				<em>Some suggested uses: use the map to try and meet all your needs with only used and free goods for a month, or get all of your food from gardens, CSAs, and co-ops.  Next time you have a need, check here before going to a corporation and see how many of your needs can be met by your own neighbors.</em>
+			</p>
+			<p>
+				<strong>Note: This map is still being populated and so won't be very useful just yet.  Expect to see it much more full very soon!  If you'd like to help or you have something to say about a result, e-mail map@solidaritypiedmont.org .</strong>
+			</p>
+			<a class="close-reveal-modal">&#215;</a>
+		</div>
+		<div id="wrapper">
+			<div id="header">
+				<!-- <div class="about">A Project of the <a href="http://www.solidaritypiedmont.org/">Piedmont Solidarity Economy Network</a></div> -->
+				
+			</div>
+			<br/>
+			<div id="map-canvas">
+				<div id="top-text">Piedmont Solidarity Economy Map :: Identifying Another Way</div>
+				
+				<div id="in-map">
+				
+					<div id="nav-container">
+
+						<div id="nav-column-first">
+							<div class="nav-label">
+								By Need
+							</div>
+							<div class="navlinks">
+								<select style="font-size:11px;width:120px;">
+									<option id="need-all">All Needs</option>
+									<option id="need-advocacy">Advocacy</option>
+									<br/>
+									<option id="need-bank">Banking</option>
+									<br/>
+									<option id="need-community">Community</option>
+									<br/>
+									<option id="need-food">Food</option>
+									<br/>
+									<option id="need-goods">Goods</option>
+									<br/>
+									<option id="need-housing">Housing</option>
+									<br/>
+									<option id="need-health">Health</option>
+									<br/>
+									<option id="need-learnplay">Learn &amp; Play</option>
+									<br/>
+									<option id="need-transport">Transport</option>
+									<br/>
+								</select>
+							</div>
+
+							<div class="nav-label">
+								By Practice
+							</div>
+							<select style="font-size:11px;width:120px;">
+								<option id="practice-all">All Practices</option>
+								<option id="practice-local">Local Sourcing
+									<br/>
+								</option>
+								<option id="practice-community">Community Involvement
+									<br/>
+								</option>
+								<option id="practice-commons">Commons Resources
+									<br/>
+								</option>
+								<option id="practice-health">Health and Healing
+									<br/>
+								</option>
+								<option id="practice-labor">Fair Labor &amp; Governance
+									<br/>
+								</option>
+								<option id="practice-pricing">Fair Pricing
+									<br/>
+								</option>
+								<option id="practice-currencies">Accepts Other Currencies</option>
+								<option id="practice-barter">Barter or Free Stuff</option>
+								<option id="practice-purchasing">Ethical Purchasing
+									<br/>
+								</option>
+								<option id="practice-sustainable">Sustainable Practices
+									<br/>
+								</option>
+								<option id="practice-social">Diversity &amp; Social Justice
+									<br/>
+								</option>
+							</select>
+
+							<div class="nav-label">
+								By Type
+							</div>
+							<select style="font-size:11px;width:120px;">
+								<option id="types-all">Any Type</option>
+								<option id="types-commons">Commons
+									<br/>
+								</option>
+								<option id="types-gardens">Community Gardens
+									<br/>
+								</option>
+								<option id="types-coops">Cooperatives
+									<br/>
+								</option>
+								<option id="types-diy">DIY & Skillshare
+									<br/>
+								</option>
+								<option id="types-csa">Farms & CSAs
+									<br/>
+								</option>
+								<option id="types-finance">Finance
+									<br/>
+								</option>
+								<option id="types-learning">Learning
+									<br/>
+								</option>
+								<option id="types-marketplace">Marketplace
+									<br/>
+								</option>
+								<option id="types-nonprofits">Nonprofits
+									<br/>
+								</option>
+								<option id="types-services">Public Services
+									<br/>
+								</option>
+								<option id="types-social">Social & Fun
+									<br/>
+								</option>
+								<option id="types-thrift">Thrift & Used
+									<br/>
+								</option>
+							</select>
+							<div class="nav-label">
+								Located In
+							</div>
+							<select style="font-size:11px;width:120px;">
+								<option id="zoom-all">Anywhere</option>
+								<option id="zoom-carrboro">Carrboro
+									<br/>
+								</option>
+								<option id="zoom-chapelhill">Chapel Hill
+									<br/>
+								</option>
+								<option id="zoom-durham">Durham
+									<br/>
+								</option>
+								<option id="zoom-hillsborough">Hillsborough
+									<br/>
+								</option>
+								<option id="zoom-pittsboro">Pittsboro
+									<br/>
+								</option>
+								<option id="zoom-raleigh">Raleigh<br/></option>
+								<option id="zoom-saxapahaw">Saxapahaw
+									<br/>
+								</option>
+							</select>
+						</div>
+						<div id="results">
+							Results
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#myModal').reveal({
+						animation : 'none'
+					});
+				});
+			</script>
+			<div id="main">
+				
+
+				<div id="main-content">
+					<b>Mapping Another Economy</b>
+					<br/>
+					<p>
+						This map seeks to reveal the places in our community that support the values of sustainability and social justice.  We are trying to trace the shape of a more humane economy and encourage people to look to these sources to meet their daily needs.  Collectively, we call the pieces of this network the Piedmont Solidarity Economy. <a href="http://solidaritypiedmont.org/the-movement/">What is a solidarity economy?</a>
+					</p>
+
+					<b>Using the Map</b>
+					<br/>
+					<p>
+						The places on the map are discoverable by the <em>Need</em> they meet, by the <em>Practices</em> they engage in, and by the <em>Type</em> of place they are.  Use the zoom controls at the top to highlight a certain region, and click the options on the left to see the examples in that area.  Click a dot to see information about the place.
+					</p>
+					<p>
+						Check our our growing <a href="solecomap-cards.html">directory</a>.
+					</p>
+					<p>
+						If you'd like your organization to be listed, please submit it with <a href="https://docs.google.com/forms/d/1GzQpOOU062-O99L1GZt-EDB-IA6FUS7nrMUpU79gNB0/viewform">this form</a>.  For any other questions, <a href="mailto:map@solidaritypiedmont.org">e-mail us</a>.
+					</p>
+				</div>
+				<div id="headertext">
+					Piedmont Solidarity Map v0.1
+					<div id="tagline">
+						Identifying Another Way
+					</div>
+					<div id="projecttext">
+						A Project of the <a id="projectlink" href="http://www.solidaritypiedmont.org/">Piedmont Solidarity Economy Network</a>
+					</div>
+				</div>
+				<div id="debug">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
