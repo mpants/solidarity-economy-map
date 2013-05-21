@@ -12,19 +12,13 @@ function initialize() {
 	var results = document.getElementById('results');
 	var queryphrase = document.getElementById('queryphrase');
 
-	results.innerHTML = "Discover local places and groups on the map by the <strong>Need</strong> they meet, the economic <strong>Practices</strong> they participate in, or the <strong>Type</strong> of organization they are.  Use the navigation to the left.";
+	results.innerHTML = "<br/>Discover local places and groups on the map by the <strong>Need</strong> they meet, the economic <strong>Practices</strong> they participate in, or the <strong>Type</strong> of organization they are.";
 
 	//Code for list view
 
 	//Put all button functions here
 	//Food
-	$('.needoption').click(function() {
-		category = $('#need-list').val();
-		
-			updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		
-		
-	}); 
+
 	$('#need-list').change(function() {
 		category = $('#need-list').val();
 		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
@@ -33,81 +27,6 @@ function initialize() {
 	});
 
 	
-	/*
-	var needfood = document.getElementById("need-food");
-	needfood.onclick = function() {
-	category = 'Food';
-	updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-	//document.getElementById("debug").innerHTML="Getting food...";
-	return false;
-	}
-	
-
-	//Advocacy
-	var needadvocacy = document.getElementById("need-advocacy");
-	needadvocacy.onclick = function() {
-		category = 'Advocacy';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		//document.getElementById("debug").innerHTML="Getting advocacy...";
-		return false;
-	}
-	//Banking
-	var needbank = document.getElementById("need-bank");
-	needbank.onclick = function() {
-		category = 'Banking';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	//Health
-	var needhealth = document.getElementById("need-health");
-	needhealth.onclick = function() {
-		category = 'Health';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	//Community
-	var needcommunity = document.getElementById("need-community");
-	needcommunity.onclick = function() {
-		category = 'Community';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	//Learning
-	var needlearnplay = document.getElementById("need-learnplay");
-	needlearnplay.onclick = function() {
-		category = 'LearnAndPlay';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	//Goods
-	var needgoods = document.getElementById("need-goods");
-	needgoods.onclick = function() {
-		category = 'Goods';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	//Housing
-	var needhousing = document.getElementById("need-housing");
-	needhousing.onclick = function() {
-		category = 'Housing';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	//Transport
-	var needtransport = document.getElementById("need-transport");
-	needtransport.onclick = function() {
-		category = 'Transport';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	
-	var needall = document.getElementById("need-all");
-	needall.onclick = function() {
-		category = '';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		return false;
-	}
-	*/
 	//Sourcing (local sourcing)
 	var practicelocal = document.getElementById("practice-local");
 	practicelocal.onclick = function() {
