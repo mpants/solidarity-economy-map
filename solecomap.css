@@ -8,16 +8,31 @@ body {
 
 #wrapper {
 	width: 85%;
+	min-height: 950px;
+	vertical-align:middle;
 	min-width: 980px;
 	margin-left: auto;
 	margin-right: auto;
 	z-index:200;
-	height:1px;
+}
+.map-buffer {
+	max-height:300px;
+	height: 30%;
+	
+}
+
+#header-links {
+	float:right;
+	font-size:14px;
+	color: #000;
+	background:#FFF;
+	opacity:.8;
 }
 #map-canvas {
+	vertical-align:middle;
 	width: 101.2%;
+	height:600px;
 	margin-left: -7px;
-	height: 550px;
 	float: left;
 	border-top: 2px solid #777;
 	border-bottom: 2px solid #777;
@@ -43,13 +58,27 @@ body {
 	background:#CCEECC;
 	opacity:.9;
 }
+
+#queryphrase {
+	color: #000;
+	position:absolute;
+	z-index:505;
+	top:10px;
+	right:40px;
+	font-size:14px;
+	background:#fff;
+	opacity:.8;
+	padding-right:10px;
+	padding-left:10px;
+	border: solid 1px #999;
+}
 #in-map {
 	background:#309080;
 	position: absolute;
 	z-index: 505;
 	top:30px;
 	width:200px;
-	height:430px;
+	height:400px;
 	left:30px;
 	padding:10px;
 	border: solid 1px #999;
@@ -63,6 +92,7 @@ body {
 	width: 98%;
 	max-width: 1100px;
 	color: #fff;
+	height:14px;
 }
 
 #headertext {
@@ -171,7 +201,6 @@ body {
 .nav-label {
 	font-size: 14px;
 	padding-bottom: 5px;
-	padding-top: 10px;
 }
 
 .navlinks a {
@@ -228,22 +257,22 @@ body {
 }
 
 .name {
-	color: rgb(255,50,13);
+	color: rgb(255,255,13);
 	text-decoration: none;
 	font-weight: bold;
 }
 .name a:visited {
-	color: rgb(255,50,13);
+	color: rgb(255,255,13);
 	text-decoration: none;
 	font-weight: bold;
 }
 .name a:active {
-	color: rgb(255,50,13);
+	color: rgb(255,255,13);
 	text-decoration: none;
 	font-weight: bold;
 }
 .name a:hover {
-	color: rgb(255,70,33);
+	color: rgb(255,255,33);
 	text-decoration: none;
 	font-weight: bold;
 }

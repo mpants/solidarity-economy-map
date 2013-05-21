@@ -10,6 +10,7 @@ function initialize() {
 	var nameColumn = 'Name';
 	var category = '';
 	var results = document.getElementById('results');
+	var queryphrase = document.getElementById('queryphrase');
 
 	results.innerHTML = "Discover local places and groups on the map by the <strong>Need</strong> they meet, the economic <strong>Practices</strong> they participate in, or the <strong>Type</strong> of organization they are.  Use the navigation to the left.";
 
@@ -17,13 +18,31 @@ function initialize() {
 
 	//Put all button functions here
 	//Food
+	$('.needoption').click(function() {
+		category = $('#need-list').val();
+		
+			updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
+		
+		
+	}); 
+	$('#need-list').change(function() {
+		category = $('#need-list').val();
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
+		
+		
+	});
+
+	
+	/*
 	var needfood = document.getElementById("need-food");
 	needfood.onclick = function() {
-		category = 'Food';
-		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
-		//document.getElementById("debug").innerHTML="Getting food...";
-		return false;
+	category = 'Food';
+	updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
+	//document.getElementById("debug").innerHTML="Getting food...";
+	return false;
 	}
+	
+
 	//Advocacy
 	var needadvocacy = document.getElementById("need-advocacy");
 	needadvocacy.onclick = function() {
@@ -81,12 +100,14 @@ function initialize() {
 		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
 		return false;
 	}
+	
 	var needall = document.getElementById("need-all");
 	needall.onclick = function() {
 		category = '';
 		updateCategoryTwo(layer, tableId, locationColumn, category, 'NeedsJoined');
 		return false;
 	}
+	*/
 	//Sourcing (local sourcing)
 	var practicelocal = document.getElementById("practice-local");
 	practicelocal.onclick = function() {
@@ -368,7 +389,7 @@ function initialize() {
 		zoom : 11,
 		mapTypeId : google.maps.MapTypeId.ROADMAP,
 		styles : mapStyles,
-		scrollwheel : false,
+		scrollwheel : true,
 		noClear : true,
 		mapTypeControl : false,
 		panControl : false,
@@ -455,6 +476,19 @@ function updateCategoryTwo(layer, tableId, locationColumn, category, sortby) {
 	url2.push('?sql=' + encodedlistquery);
 	url2.push('&key=AIzaSyDkbZmlojVJ6CVwF5W4BGLwf4tbcouNlt4');
 	url2.push('&callback=?');
+	whatquery = "";
+	if (currentneed != "") {
+		whatquery += "I'm looking for " + currentneed;
+		if (currentpractice != "") {
+			whatquery += " that practices " + currentpractice;
+			if (currenttype != "") {
+				whatquery += " and is a " + currenttype;
+			}
+		}
+
+	}
+	queryphrase.innerHTML = whatquery;
+
 	results.innerHTML = "Results - Click the name to zoom to the location.";
 	$.ajax({
 		url : url2.join(''),
