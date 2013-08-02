@@ -1,8 +1,7 @@
 body {
 	font-size: 12px;
 	font-family: 'Armata', sans-serif;
-	background: #309080 url('/haw-river.jpg') no-repeat fixed left;
-	background-size: 100% 100%;
+	background: #309080;
 	overflow-x: hidden;
 }
 
@@ -17,7 +16,7 @@ select {
     -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
     box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
     background: #f8f8f8;
-    color:#888;
+    color: rgb(26,96,86);
     border:none;
     outline:none;
     display: inline-block;
@@ -110,7 +109,8 @@ option:hover {
 	display:none;
 }
 #in-map {
-	background:#CCEECC;
+	background:rgb(35,128,44);
+	color:#fff;
 	position: absolute;
 	z-index: 505;
 	top:10px;
@@ -118,10 +118,11 @@ option:hover {
 	height:400px;
 	left:30px;
 	padding:10px;
-	border: solid 1px #999;
-	opacity:.9;
+	opacity:.8;
 	
 }
+
+
 #header {
 
 	margin-left: auto;

@@ -5,20 +5,28 @@ var currentneed = "";
 var DEFAULT_ICON_URL = 'http://solidaritypiedmont.org/icons/flower.png';
 var BASE_URL = "http://solidaritypiedmont.org/icons/";
 var results2 = document.getElementById('results');
-var markers = [];
-var infoWindow = new google.maps.InfoWindow();
+
+	var infoWindow = new google.maps.InfoWindow();
 
 function initialize() {
 
-	//var tableId = '15dnctYCRxg6mFNggT0bxV19WSw3dt18lDC_115s';
-	var tableId = '11wvoTm-ry1Cq5jz0hh0Gw7EA3xlEpmtyTlxPXI0';
+	/*
+	 *   fetchData();  // begin retrieving data from table, and put it on the map
+
+	 map = new google.maps.Map(document.getElementById('map-canvas'), {
+	 center: new google.maps.LatLng(37.4, -122.1),
+	 zoom: 9,
+	 mapTypeId: google.maps.MapTypeId.ROADMAP
+	 });
+	 }
+
+	 google.maps.event.addDomListener(window, 'load', initialize);
+	 */
+
+	var tableId = '15dnctYCRxg6mFNggT0bxV19WSw3dt18lDC_115s';
 	var locationColumn = 'Location';
-	var latColumn = 'Latitude';
-	var longColumn = 'Longitude';
 	var nameColumn = 'Name';
 	var iconUrlColumn = 'Icon';
-
-	initMap(tableId);
 
 	var category = '';
 	var results2 = document.getElementById('results');
@@ -37,12 +45,97 @@ function initialize() {
 
 	});
 
-	$('#practice-list').change(function() {
-		category = $('#practice-list').val();
-		updateCategoryTwo(tableId, locationColumn, category, 'PracticesJoined');
-	
-	});
-
+	//Sourcing (local sourcing)
+	var practicelocal = document.getElementById("practice-local");
+	practicelocal.onclick = function() {
+		category = 'Sourcing';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//Ownership (local ownership)
+	var practiceown = document.getElementById("practice-localown");
+	practiceown.onclick = function() {
+		category = 'Ownership';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//Community
+	var practicecommunity = document.getElementById("practice-community");
+	practicecommunity.onclick = function() {
+		category = 'Involvement';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//Commons
+	var practicecommons = document.getElementById("practice-commons");
+	practicecommons.onclick = function() {
+		category = 'Commons';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//Health
+	var practicehealth = document.getElementById("practice-health");
+	practicehealth.onclick = function() {
+		category = 'Health';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//labor
+	var practicelabor = document.getElementById("practice-labor");
+	practicelabor.onclick = function() {
+		category = 'Labor';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//barter
+	var practicebarter = document.getElementById("practice-barter");
+	practicebarter.onclick = function() {
+		category = 'Barter';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//pricing
+	var practicepricing = document.getElementById("practice-pricing");
+	practicepricing.onclick = function() {
+		category = 'Pricing';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//currencies
+	var practicecurrencies = document.getElementById("practice-currencies");
+	practicecurrencies.onclick = function() {
+		category = 'Currencies';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//purchasing
+	var practicepurchasing = document.getElementById("practice-purchasing");
+	practicepurchasing.onclick = function() {
+		category = 'Purchasing';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//sustainable
+	var practicesustainable = document.getElementById("practice-sustainable");
+	practicesustainable.onclick = function() {
+		category = 'Sustainable';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//justice
+	var practicejustice = document.getElementById("practice-social");
+	practicejustice.onclick = function() {
+		category = 'Justice';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
+	//All
+	var practiceall = document.getElementById("practice-all");
+	practiceall.onclick = function() {
+		category = '';
+		updateCategoryTwo(layer, tableId, locationColumn, category, 'PracticesJoined');
+		return false;
+	}
 	//TYPES
 	//Commons
 	var typecommons = document.getElementById("types-commons");
@@ -253,29 +346,26 @@ function initialize() {
 		streetViewControl : false,
 
 	});
-
-
+   /*
+	var layer = new google.maps.FusionTablesLayer({
+		query : {
+		 select : locationColumn,
+		 from : tableId
+		 },
+		map : map,
+		templateId : 4,
+		styleId : 2
+	});
+    */
+    
 	google.maps.event.addDomListener(document.getElementById('category'), 'change', function() {
 		updateCategoryTwo(tableId, locationColumn);
 	});
 	$(function() {
 		$('#myModal').reveal();
 	});
-
 }
 
-function clearMarkers() {
-	var i = markers.length;
-	for (var j = 0; j < i; j++)
-	{
-		if (markers[j] != null)
-		{
-		markers[j].setMap(null);
-		markers[j] = null;
-		}
-	}
-	return false;
-}
 function createMarker(coordinate, url, content) {
 	//(passed: Place, icon, names)
 	url2 = BASE_URL + url;
@@ -284,7 +374,6 @@ function createMarker(coordinate, url, content) {
 		position : coordinate,
 		icon : new google.maps.MarkerImage(url)
 	});
-	markers.push(marker);
 	google.maps.event.addListener(marker, 'click', function(event) {
 		//COordinate = LATLNG object
 		infoWindow.setPosition(coordinate);
@@ -293,54 +382,92 @@ function createMarker(coordinate, url, content) {
 	});
 };
 
+function fetchData() {
 
+	// Construct a query to get data from the Fusion Table
+	// EDIT this list to include the variables for columns named above
+	var query = 'SELECT ' + latitudeColumn + ',' + longitudeColumn + ',' + iconUrlColumn + ',' + infowindowContentColumn + ' FROM ' + tableID;
+	var encodedQuery = encodeURIComponent(query);
 
-function initMap(tableId) {
-	var listquery = "SELECT Name, Latitude, Longitude, Icon FROM " + tableId;
-	var encodedlistquery = encodeURIComponent(listquery);
-	var url2 = ['https://www.googleapis.com/fusiontables/v1/query'];
-	url2.push('?sql=' + encodedlistquery);
-	url2.push('&key=AIzaSyDkbZmlojVJ6CVwF5W4BGLwf4tbcouNlt4');
-	url2.push('&callback=?');
+	// Construct the URL
+	var url = ['https://www.googleapis.com/fusiontables/v1/query'];
+	url.push('?sql=' + encodedQuery);
+	url.push('&key=' + apiKey);
+	url.push('&callback=?');
+
+	// Send the JSONP request using jQuery
 	$.ajax({
-		url : url2.join(''),
+		url : url.join(''),
 		dataType : 'jsonp',
-		success : function(data) {
-
-			var rows = data['rows'];
-			for (var i in rows) {
-				//var coordinate = new google.maps.LatLng(rows[i][0],rows[i][1]);
-
-				var names = rows[i][0];
-				var icons = rows[i][3];
-				var locations = new google.maps.LatLng(rows[i][1], rows[i][2]);
-				codeAddress(locations, names, icons);
-
-			}
-		}
+		success : onDataFetched
 	});
-
-	return false;
 }
 
+/*
+function onDataFetched(data) {
+var rows = data['rows'];
+var iconUrl;
+var content;
+var coordinate;
+
+// Copy each row of data from the response into variables.
+// Each column is present in the order listed in the query.
+// Starting from 0.
+// EDIT this if you've changed the columns, above.
+for (var i in rows) {
+coordinate = new google.maps.LatLng(rows[i][0], rows[i][1]);
+iconUrl = rows[i][2];
+content = rows[i][3];
+
+if (iconUrl) {// ensure not empty
+createMarker(coordinate, iconUrl, content);
+} else {
+createMarker(coordinate, DEFAULT_ICON_URL, content);
+}
+}
+}
+*/
+// Update the query sent to the Fusion Table Layer based on
+// the user selection in the select menu
+
+function initMap(tableId)
+{
+		var wherequery = "SELECT Name, Location, Icon FROM " + tableId;
+}
 function updateCategoryTwo(tableId, locationColumn, category, sortby) {
-	clearMarkers();
+
 	currentcategory = category;
 	//layer.setMap(map);
 	//document.getElementById("debug").innerHTML="Getting food...";
 	if (sortby == 'NeedsJoined') {
 		currentneed = category;
-		var listquery = "SELECT Name, Latitude, Longitude, Icon FROM " + tableId + " WHERE NeedsJoined LIKE '%" + category + "%' AND PracticesJoined LIKE '%" + currentpractice + "%' AND TypesJoined LIKE '%" + currenttype + "%'";
-
+		var listquery = "SELECT Name, Location, Icon FROM " + tableId + " WHERE NeedsJoined LIKE '%" + category + "%' AND PracticesJoined LIKE '%" + currentpractice + "%' AND TypesJoined LIKE '%" + currenttype + "%'";
+		var wherequery = "NeedsJoined LIKE '%" + category + "%' AND PracticesJoined LIKE '%" + currentpractice + "%' AND TypesJoined LIKE '%" + currenttype + "%'";
 	} else if (sortby == 'PracticesJoined') {
 		currentpractice = category;
-		var listquery = "SELECT Name, Latitude, Longitude, Icon FROM " + tableId + " WHERE NeedsJoined LIKE '%" + currentneed + "%' AND PracticesJoined LIKE '%" + category + "%' AND TypesJoined LIKE '%" + currenttype + "%'";
-
+		var listquery = "SELECT Name, Location, Icon FROM " + tableId + " WHERE NeedsJoined LIKE '%" + currentneed + "%' AND PracticesJoined LIKE '%" + category + "%' AND TypesJoined LIKE '%" + currenttype + "%'";
+		var wherequery = "NeedsJoined LIKE '%" + currentneed + "%' AND PracticesJoined LIKE '%" + category + "%' AND TypesJoined LIKE '%" + currenttype + "%'";
 	} else if (sortby == 'TypesJoined') {
 		currenttype = category;
-		var listquery = "SELECT Name, Latitude, Longitude, Icon FROM " + tableId + " WHERE NeedsJoined LIKE '%" + currentneed + "%' AND PracticesJoined LIKE '%" + currentpractice + "%' AND TypesJoined LIKE '%" + category + "%'";
-
+		var listquery = "SELECT Name, Location, Icon FROM " + tableId + " WHERE NeedsJoined LIKE '%" + currentneed + "%' AND PracticesJoined LIKE '%" + currentpractice + "%' AND TypesJoined LIKE '%" + category + "%'";
+		var wherequery = "NeedsJoined LIKE '%" + currentneed + "%' AND PracticesJoined LIKE '%" + currentpractice + "%' AND TypesJoined LIKE '%" + category + "%'";
 	}
+	
+	document.getElementById('results').innerHTML = wherequery;
+	//EITHER NEED TO COMBINE NEED COLUMNS OR DO MULTIPLE LAYER ADDS.  Goofy.
+
+	//var listquery = "SELECT Name, Location FROM " + tableId + " WHERE '" + category + "' in ('Need 1','Need 2','Need 3')";
+
+	/*
+	 layer.setOptions({
+	 query : {
+	 select : locationColumn,
+	 from : tableId,
+	 where : wherequery,
+
+	 }
+	 });
+	 */
 
 	var encodedlistquery = encodeURIComponent(listquery);
 	var url2 = ['https://www.googleapis.com/fusiontables/v1/query'];
@@ -371,9 +498,10 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 				//var coordinate = new google.maps.LatLng(rows[i][0],rows[i][1]);
 
 				var names = rows[i][0];
-				var icons = rows[i][3];
-				var locations = new google.maps.LatLng(rows[i][1], rows[i][2]);
-				codeAddress(locations, names, icons);
+				var icons = rows[i][2];
+				var locations = rows[i][1];
+				codeAddress(rows[i][1], names, icons);
+
 				var dataElement = document.createElement('div');
 				var nameElement = document.createElement('p');
 				nameElement.innerHTML = names;
@@ -385,7 +513,7 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 				a.href = "";
 				a.onclick = (function(locations) {
 					return function() {
-						zoomToAddressTwo(locations, a.title);
+						zoomToAddressTwo(locations,a.title);
 						return false;
 					};
 				})(locations);
@@ -393,6 +521,32 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 				dataElement.appendChild(a);
 				document.getElementById('results').appendChild(dataElement);
 
+				/*
+				 if (icons) {// ensure not empty
+				 createMarker(locations, icons, names);
+				 } else {
+				 createMarker(locations, DEFAULT_ICON_URL, names);
+				 }
+
+				 var dataElement = document.createElement('div');
+				 var nameElement = document.createElement('p');
+				 nameElement.innerHTML = names;
+				 nameElement.className = 'name';
+
+				 var a = document.createElement('a');
+				 a.appendChild(nameElement);
+				 a.title = names;
+				 a.href = "";
+				 a.onclick = (function(locations) {
+				 return function() {
+				 zoomToAddressTwo(locations);
+				 return false;
+				 };
+				 })(locations);
+
+				 dataElement.appendChild(a);
+				 results.appendChild(dataElement);
+				 */
 			}
 			dataElement = "";
 		}
@@ -402,14 +556,37 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 }
 
 function codeAddress(locations, names, icons) {
-	
-	 if (icons) {// ensure not empty
-	 createMarker(locations, DEFAULT_ICON_URL, names);
-	 } else {
-	 createMarker(locations, DEFAULT_ICON_URL, names);
-	 }
+	var geocoder = new google.maps.Geocoder();
 
-	return false;
+	geocoder.geocode({
+		'address' : locations
+	}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			var msg = String(results[0].geometry.location) + ' from geocode';
+			//alert("CodeAddress: " + msg);
+			//var mylat = results[0].geometry.location.getLatitude();
+			//var mylong = results[0].geometry.location.getLongitude();
+			place = results[0].geometry.location;
+
+			if (icons) {// ensure not empty
+				createMarker(place, icons, names);
+			} else {
+				createMarker(place, DEFAULT_ICON_URL, names);
+			}
+
+			/*
+			 map.setCenter(results[0].geometry.location);
+			 var marker = new google.maps.Marker({
+			 map : map,
+			 position : results[0].geometry.location
+			 });
+			 */
+
+		} else {
+			//alert("Geocoder 1 was not successful for the following reason: " + status);
+		}
+	});
+
 }
 
 function zoomToAddress(mylat, mylong, zoom, map) {
@@ -419,7 +596,7 @@ function zoomToAddress(mylat, mylong, zoom, map) {
 	return false;
 };
 
-function zoomToAddressTwo(locations, content) {
+function zoomToAddressTwo(locations,content) {
 	var geocoder = new google.maps.Geocoder();
 
 	geocoder.geocode({
@@ -428,9 +605,9 @@ function zoomToAddressTwo(locations, content) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			map.setZoom(15);
 			map.setCenter(results[0].geometry.location);
-			infoWindow.setPosition(results[0].geometry.location);
-			infoWindow.setContent(content);
-			infoWindow.open(map);
+					infoWindow.setPosition(results[0].geometry.location);
+		infoWindow.setContent(content);
+		infoWindow.open(map);
 			//var mylat = results[0].geometry.location.getLatitude();
 			//var mylong = results[0].geometry.location.getLongitude();
 
