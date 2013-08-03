@@ -26,7 +26,6 @@ function initialize() {
 
 	results2.innerHTML = "<br/>Discover local places and groups on the map by the <strong>Need</strong> they meet, the economic <strong>Practices</strong> they participate in, or the <strong>Type</strong> of organization they are.";
 
-	//Code for list view
 
 	//Put all button functions here
 	//Food
