@@ -1,59 +1,65 @@
 body {
-	font-size: 12px;
+	font-size: 13px;
+	color:#000;
 	font-family: 'Armata', sans-serif;
-	background: #309080;
 	overflow-x: hidden;
+	background: rgba(98,155,54,1);
+background: -moz-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,155,54,1)), color-stop(8%, rgba(98,155,54,1)), color-stop(79%, rgba(112,177,62,1)), color-stop(100%, rgba(98,155,54,1)));
+background: -webkit-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+background: -o-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+background: -ms-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+background: linear-gradient(to right, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#629b36', endColorstr='#629b36', GradientType=1 );
 }
 
 select {
 	font-size: 14px;
-	width:120px;
-	
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
-    background: #f8f8f8;
-    color: rgb(26,96,86);
-    border:none;
-    outline:none;
-    display: inline-block;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-    cursor:pointer;
+	width: 120px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+	-moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+	box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+	background: #f8f8f8;
+	color: rgb(26,96,86);
+	border: none;
+	outline: none;
+	display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
 }
 option:hover {
 	background-color: #AAAAAA;
 }
 #wrapper {
-	width: 85%;
-	min-height: 950px;
-	vertical-align:middle;
-	min-width: 980px;
+
+	vertical-align: middle;
+	min-width: 580px;
 	margin-left: auto;
 	margin-right: auto;
-	z-index:200;
-}
+	z-index: 200;
+	}
 .map-buffer {
-	max-height:300px;
+	max-height: 300px;
 	height: 30%;
-	
 }
 
 #header-links {
-	float:right;
-	font-size:14px;
+	float: right;
+	font-size: 14px;
 	color: #000;
-	background:#FFF;
-	opacity:.8;
+	background: #FFF;
+	opacity: .8;
 }
 #map-canvas {
-	vertical-align:middle;
+	vertical-align: middle;
 	width: 101.2%;
-	height:600px;
+	margin-top:10px;
+	height: 570px;
 	margin-left: -7px;
 	float: left;
 	border-top: 2px solid #777;
@@ -61,67 +67,71 @@ option:hover {
 	border-right: 1px solid #777;
 	border-left: 1px solid #777;
 	clear: both;
-	-webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,1);
-	-moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,1);
-	box-shadow: 1px 1px 4px 0px rgba(0,0,0,1);
-	z-index:500;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
+	z-index: 500;
 	border: 0px solid #000000;
 }
 
-#top-text {	
-	color:#000;
-	position:absolute;
-	z-index:505;
-	top:0px;
-	left:0px;
-	font-size:15px;
-	padding-left:10px;
-	padding-right:10px;
-	background:#fff;
-	opacity:.8;
+#top-text {
+	color: #000;
+	position: absolute;
+	z-index: 505;
+	top: 0px;
+	left: 0px;
+	font-size: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #fff;
+	opacity: .8;
 }
 #map-links {
 	color: #000;
-	position:absolute;
-	z-index:505;
-	top:0px;
-	right:40px;
-	font-size:14px;
-	background:#fff;
-	opacity:.9;
-	padding-right:10px;
-	padding-left:10px;
-
+	position: absolute;
+	z-index: 505;
+	top: 0px;
+	right: 40px;
+	font-size: 14px;
+	background: #fff;
+	opacity: .9;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 #queryphrase {
 	color: #309080;
-	position:absolute;
-	z-index:505;
-	top:60px;
-	left:430px;
-	font-size:14px;
-	background:#fff;
-	opacity:.9;
-	border: solid 1px #CCEECC;
-	display:none;
-}
-#in-map {
-	background:rgb(35,128,44);
-	color:#fff;
 	position: absolute;
 	z-index: 505;
-	top:10px;
-	width:200px;
-	height:400px;
-	left:30px;
-	padding:10px;
-	opacity:.8;
-	
+	top: 60px;
+	left: 430px;
+	font-size: 14px;
+	background: #fff;
+	opacity: .9;
+	border: solid 1px #CCEECC;
+	display: none;
+}
+#in-map {
+
+	background: rgba(250,179,0,1);
+background: -moz-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,179,0,1)), color-stop(100%, rgba(255,204,20,1)));
+background: -webkit-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+background: -o-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+background: -ms-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+background: linear-gradient(to right, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', endColorstr='#ffcc14', GradientType=1 );color: #fff;
+	position: absolute;
+	z-index: 505;
+	top: 0px;
+	width: 250px;
+	height: 600px;
+	left: 0px;
+	color:#000;
+	padding: 10px;
 }
 
+#in-map a {
+	text-decoration: none;
+	color: rgb(40, 120, 52);
+}
+}
 
 #header {
 
@@ -130,14 +140,14 @@ option:hover {
 	width: 98%;
 	max-width: 1100px;
 	color: #fff;
-	height:14px;
+	height: 14px;
 }
 
 #headertext {
 	float: left;
 	min-width: 290px;
 	font-size: 14px;
-	margin-left:30px;
+	margin-left: 30px;
 	margin-bottom: 5px;
 	padding: 7px;
 	color: #000;
@@ -202,7 +212,7 @@ option:hover {
 	margin-right: auto;
 	width: 1100px;
 	color: #fff;
-	z-index:200;
+	z-index: 200;
 }
 
 #main-nav {
@@ -215,8 +225,8 @@ option:hover {
 	margin-bottom: 20px;
 	margin-right: 50px;
 	z-index: 506;
-	position:absolute;
-	top:570px;
+	position: absolute;
+	top: 570px;
 	border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
 	-webkit-border-radius: 10px 10px 10px 10px;
@@ -239,7 +249,7 @@ option:hover {
 .nav-label {
 	font-size: 14px;
 	padding-bottom: 5px;
-	padding-top:5px;
+	padding-top: 5px;
 }
 
 .navlinks a {
@@ -289,7 +299,7 @@ option:hover {
 
 #results {
 	float: left;
-	height: 180px;
+	height: 350px;
 	overflow-y: auto;
 	padding-left: 5px;
 	padding-top: 10px;
@@ -298,17 +308,21 @@ option:hover {
 .name {
 	text-decoration: none;
 	font-weight: bold;
+	font-size:1.1em;
 }
 .name a:visited {
 	text-decoration: none;
 	font-weight: bold;
+	font-size:1.1em;
 }
 .name a:active {
 	text-decoration: none;
 	font-weight: bold;
+	font-size:1.1em;
 }
 .name a:hover {
 	text-decoration: none;
 	font-weight: bold;
+	font-size:1.1em;
 }
 

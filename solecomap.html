@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />  
+		<meta charset="utf-8" />
 
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
@@ -50,7 +50,27 @@
 		<div id="myModal" class="reveal-modal">
 			<h1>Explore Your Living Community (ALPHA VERSION, IN DEVELOPMENT)</h1>
 			<p>
-				<strong>Note: This map is still being populated and so won't be very useful just yet.  Expect to see it much more full very soon!</strong><br/>Features being developed include:<ul><li>Mobile Compatibility</li><li>Nicer Icons</li><li>Clearer Interface</li><li>Visual Listing of Results</li><li>Render All Megacorporations Obsolete</li></ul> If you'd like to help or you have something to say about a result, e-mail map@solidaritypiedmont.org .</strong>
+				<strong>Note: This map is still being populated and so won't be very useful just yet.  Expect to see it much more full very soon!</strong>
+				<br/>
+				Features being developed include:
+				<ul>
+					<li>
+						Mobile Compatibility
+					</li>
+					<li>
+						Nicer Icons
+					</li>
+					<li>
+						Clearer Interface
+					</li>
+					<li>
+						Visual Listing of Results
+					</li>
+					<li>
+						Render All Megacorporations Obsolete
+					</li>
+				</ul>
+				If you'd like to help or you have something to say about a result, e-mail map@solidaritypiedmont.org .</strong>
 			</p>
 			<p>
 				This map is a growing record of the businesses, nonprofits, and public places that provide ways to meet our needs without big corporations.  More than a "buy local" movement, it identifies the practices existing in your community that
@@ -58,185 +78,187 @@
 			</p>
 			<!--
 			<p>
-				Use the navigation at the top right to zoom to a specific region, or check out the drop-down boxes that let you search
-				by <strong>Need</strong> you want an alternative way to meet, by economic <strong>Practices</strong> that these groups adopt, or by <strong>Type</strong> of organization.
+			Use the navigation at the top right to zoom to a specific region, or check out the drop-down boxes that let you search
+			by <strong>Need</strong> you want an alternative way to meet, by economic <strong>Practices</strong> that these groups adopt, or by <strong>Type</strong> of organization.
 			</p>
 			-->
 			<p>
 				<em>Some suggested uses: use the map to try and meet all your needs with only used and free goods for a month, or get all of your food from gardens, CSAs, and co-ops.  Next time you have a need, check here before going to a corporation and see how many of your needs can be met by your own neighbors.</em>
 			</p>
-			
+
 			<a class="close-reveal-modal">&#215;</a>
 		</div>
 		<div id="wrapper">
+			<span style="font-size:1.4em;color:#fff;">Piedmont Solidarity Economy Map - Mapping the Seeds of a More Humane Economy</span><br/>
 			<div id="map-canvas">
-					<div id="map-links">
-						How To Use | <a href="/addplace.html" title="Add a place to the map.">Add a Place</a> | Who We Are
-					</div>
-					
-					
-					<div id="queryphrase">&nbsp;</div>
-					<div id="in-map">
-						Search Our Map
-						<div id="nav-container">
-
-							<div id="nav-column-first">
-								<div class="nav-label">
-									By Need
-								</div>
-								<div class="navlinks">
-									<select id="need-list">
-										<option value="" class="needoption">All Needs</option>
-										<option value="Advocacy" class="needoption">Advocacy</option>
-										<br/>
-										<option value="Banking" class="needoption">Banking</option>
-										<br/>
-										<option value="Community" class="needoption">Community</option>
-										<br/>
-										<option value="Food" class="needoption">Food</option>
-										<br/>
-										<option value="Goods" class="needoption">Goods</option>
-										<br/>
-										<option value="Housing" class="needoption">Housing</option>
-										<br/>
-										<option value="Health" class="needoption">Health</option>
-										<br/>
-										<option value="LearnAndPlay" class="needoption">Learn &amp; Play</option>
-										<br/>
-										<option value="Transport" class="needoption">Transport</option>
-										<br/>
-									</select>
-									<br/>
-								</div>
-
-								<div class="nav-label">
-									By Practice
-								</div>
-								<select id="practice-list">
-									<option value="" class="practiceoption">All Practices</option>
-									<option value="Ownership" class="practiceoption">Local Ownership
-										<br/>
-									</option>
-									<option value="Sourcing" class="practiceoption">Local Sourcing
-										<br/>
-									</option>
-									<option value="Involvement" class="practiceoption">Community Involvement
-										<br/>
-									</option>
-									<option value="Commons" class="practiceoption">Commons Resources
-										<br/>
-									</option>
-									<option value="Health" class="practiceoption">Health and Healing
-										<br/>
-									</option>
-									<option value="Labor" class="practiceoption">Fair Labor &amp; Governance
-										<br/>
-									</option>
-									<option value="Pricing" class="practiceoption">Fair Pricing
-										<br/>
-									</option>
-									<option value="Currencies" class="practiceoption">Accepts Other Currencies</option>
-									<option value="Barter" class="practiceoption">Barter or Free Stuff</option>
-									<option value="Purchasing" class="practiceoption">Ethical Purchasing
-										<br/>
-									</option>
-									<option value="Sustainable" class="practiceoption">Sustainable Practices
-										<br/>
-									</option>
-									<option value="Justice" class="practiceoption">Diversity &amp; Social Justice
-										<br/>
-									</option>
-									<br/>
-								</select>
-
-								<div class="nav-label">
-									By Type
-								</div>
-								<select>
-									<option id="types-all">Any Type</option>
-									<option id="types-commons">Commons
-										<br/>
-									</option>
-									<option id="types-gardens">Community Gardens
-										<br/>
-									</option>
-									<option id="types-coops">Cooperatives
-										<br/>
-									</option>
-									<option id="types-diy">DIY & Skillshare
-										<br/>
-									</option>
-									<option id="types-csa">Farms & CSAs
-										<br/>
-									</option>
-									<option id="types-finance">Finance
-										<br/>
-									</option>
-									<option id="types-learning">Learning
-										<br/>
-									</option>
-									<option id="types-marketplace">Marketplace
-										<br/>
-									</option>
-									<option id="types-nonprofits">Nonprofits
-										<br/>
-									</option>
-									<option id="types-services">Public Services
-										<br/>
-									</option>
-									<option id="types-social">Social & Fun
-										<br/>
-									</option>
-									<option id="types-thrift">Thrift & Used
-										<br/>
-									</option>
-									<br/>
-								</select>
-								<div class="nav-label">
-									Located In
-								</div>
-								<select>
-									<option id="zoom-all">Anywhere</option>
-									<option id="zoom-carrboro">Carrboro
-										<br/>
-									</option>
-									<option id="zoom-chapelhill">Chapel Hill
-										<br/>
-									</option>
-									<option id="zoom-durham">Durham
-										<br/>
-									</option>
-									<option id="zoom-hillsborough">Hillsborough
-										<br/>
-									</option>
-									<option id="zoom-pittsboro">Pittsboro
-										<br/>
-									</option>
-									<option id="zoom-raleigh">Raleigh
-										<br/>
-									</option>
-									<option id="zoom-saxapahaw">Saxapahaw
-										<br/>
-									</option>
-									<br/>
-								</select>
-							</div>
-							<div id="results">
-								Results
-							</div>
-						</div>
-					</div>
-
+				<div id="map-links">
+					How To Use | <a href="/addplace.html" title="Add a place to the map.">Add a Place</a> | Who We Are
 				</div>
 
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$('#myModal').reveal({
-							animation : 'none'
-						});
-					});
-				</script>
+				<div id="queryphrase">
+					&nbsp;
+				</div>
+				<div id="in-map">
+					Search Our Map
+					<div id="nav-container">
+
+						<div id="nav-column-first">
+							<div class="nav-label">
+								By Need
+							</div>
+							<div class="navlinks">
+								<select id="need-list">
+									<option value="" class="needoption">All Needs</option>
+									<option value="Advocacy" class="needoption">Advocacy</option>
+									<br/>
+									<option value="Banking" class="needoption">Banking</option>
+									<br/>
+									<option value="Community" class="needoption">Community</option>
+									<br/>
+									<option value="Food" class="needoption">Food</option>
+									<br/>
+									<option value="Goods" class="needoption">Goods</option>
+									<br/>
+									<option value="Housing" class="needoption">Housing</option>
+									<br/>
+									<option value="Health" class="needoption">Health</option>
+									<br/>
+									<option value="LearnAndPlay" class="needoption">Learn &amp; Play</option>
+									<br/>
+									<option value="Transport" class="needoption">Transport</option>
+									<br/>
+								</select>
+								<br/>
+							</div>
+
+							<div class="nav-label">
+								By Practice
+							</div>
+							<select id="practice-list">
+								<option value="" class="practiceoption">All Practices</option>
+								<option value="Ownership" class="practiceoption">Local Ownership
+									<br/>
+								</option>
+								<option value="Sourcing" class="practiceoption">Local Sourcing
+									<br/>
+								</option>
+								<option value="Involvement" class="practiceoption">Community Involvement
+									<br/>
+								</option>
+								<option value="Commons" class="practiceoption">Commons Resources
+									<br/>
+								</option>
+								<option value="Health" class="practiceoption">Health and Healing
+									<br/>
+								</option>
+								<option value="Labor" class="practiceoption">Fair Labor &amp; Governance
+									<br/>
+								</option>
+								<option value="Pricing" class="practiceoption">Fair Pricing
+									<br/>
+								</option>
+								<option value="Currencies" class="practiceoption">Accepts Other Currencies</option>
+								<option value="Barter" class="practiceoption">Barter or Free Stuff</option>
+								<option value="Purchasing" class="practiceoption">Ethical Purchasing
+									<br/>
+								</option>
+								<option value="Sustainable" class="practiceoption">Sustainable Practices
+									<br/>
+								</option>
+								<option value="Justice" class="practiceoption">Diversity &amp; Social Justice
+									<br/>
+								</option>
+								<br/>
+							</select>
+
+							<div class="nav-label">
+								By Type
+							</div>
+							<select id="type-list">
+								<option value="" class="typeoption">Any Type</option>
+								<option value="Commons" class="typeoption">Commons
+									<br/>
+								</option>
+								<option value="Gardens" class="typeoption">Community Gardens
+									<br/>
+								</option>
+								<option value="Coops" class="typeoption">Cooperatives
+									<br/>
+								</option>
+								<option value="Diy" class="typeoption">DIY & Skillshare
+									<br/>
+								</option>
+								<option value="Farms" class="typeoption">Farms & CSAs
+									<br/>
+								</option>
+								<option value="Finance" class="typeoption">Finance
+									<br/>
+								</option>
+								<option value="Learning" class="typeoption">Learning
+									<br/>
+								</option>
+								<option value="Marketplace" class="typeoption">Marketplace
+									<br/>
+								</option>
+								<option value="Nonprofits" class="typeoption">Nonprofits
+									<br/>
+								</option>
+								<option value="Services" class="typeoption">Public Services
+									<br/>
+								</option>
+								<option value="Social" class="typeoption">Social & Fun
+									<br/>
+								</option>
+								<option value="Thrift" class="typeoption">Thrift & Used
+									<br/>
+								</option>
+								<br/>
+							</select>
+							<div class="nav-label">
+								Located In
+							</div>
+							<select>
+								<option id="zoom-all">Anywhere</option>
+								<option id="zoom-carrboro">Carrboro
+									<br/>
+								</option>
+								<option id="zoom-chapelhill">Chapel Hill
+									<br/>
+								</option>
+								<option id="zoom-durham">Durham
+									<br/>
+								</option>
+								<option id="zoom-hillsborough">Hillsborough
+									<br/>
+								</option>
+								<option id="zoom-pittsboro">Pittsboro
+									<br/>
+								</option>
+								<option id="zoom-raleigh">Raleigh
+									<br/>
+								</option>
+								<option id="zoom-saxapahaw">Saxapahaw
+									<br/>
+								</option>
+								<br/>
+							</select>
+						</div>
+						<div id="results">
+							Results
+						</div>
+					</div>
+				</div>
 
 			</div>
+
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#myModal').reveal({
+						animation : 'none'
+					});
+				});
+			</script>
+
+		</div>
 	</body>
 </html>
