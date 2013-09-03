@@ -106,7 +106,7 @@ option:hover {
 	opacity: .9;
 	border: solid 1px #CCEECC;
 	display: none;
-}
+} 
 #in-map {
 
 	background: rgba(250,179,0,1);
@@ -120,7 +120,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 	position: absolute;
 	z-index: 505;
 	top: 0px;
-	width: 250px;
+	width: 220px;
 	height: 600px;
 	left: 0px;
 	color:#000;
@@ -131,6 +131,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 	text-decoration: none;
 	color: rgb(40, 120, 52);
 }
+  
+#in-map-description {
+	z-index: 555;
+	position: absolute;
+	top:350px;
+	left:270px;
+	font-size:.95em;
+	max-height:200px;
+	max-width:900px;
+	overflow-y:auto;
+	width:70%;
+	background:#FFF;
+	opacity:.8;
+	padding:5px;
+
+	
 }
 
 #header {
@@ -307,22 +323,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 
 .name {
 	text-decoration: none;
-	font-weight: bold;
-	font-size:1.1em;
+	
+}
+
+.name:hover {
+	font-weight:bold;
 }
 .name a:visited {
 	text-decoration: none;
-	font-weight: bold;
-	font-size:1.1em;
 }
 .name a:active {
 	text-decoration: none;
-	font-weight: bold;
-	font-size:1.1em;
 }
 .name a:hover {
 	text-decoration: none;
 	font-weight: bold;
-	font-size:1.1em;
 }
 
