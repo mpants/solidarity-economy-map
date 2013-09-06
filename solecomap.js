@@ -249,7 +249,10 @@ function initMap(tableId) {
 	var encodedlistquery = encodeURIComponent(listquery); 
 	var url2 = ['https://www.googleapis.com/fusiontables/v1/query'];
 	url2.push('?sql=' + encodedlistquery);
+	
+	//REALLY IMPORTANT TO CHANGE THIS LINE ON YOUR MAP WITH YOUR OWN API KEY. Ask me how
 	url2.push('&key=AIzaSyDkbZmlojVJ6CVwF5W4BGLwf4tbcouNlt4');
+	
 	url2.push('&callback=?');
 	$.ajax({
 		url : url2.join(''),

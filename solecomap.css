@@ -1,9 +1,19 @@
+html { 
+  background: url(http://solidaritypiedmont.org/haw-river.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
 	font-size: 13px;
 	color:#000;
 	font-family: 'Armata', sans-serif;
 	overflow-x: hidden;
+	/*
 	background: rgba(98,155,54,1);
+	
 background: -moz-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,155,54,1)), color-stop(8%, rgba(98,155,54,1)), color-stop(79%, rgba(112,177,62,1)), color-stop(100%, rgba(98,155,54,1)));
 background: -webkit-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
@@ -11,7 +21,9 @@ background: -o-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%,
 background: -ms-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
 background: linear-gradient(to right, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#629b36', endColorstr='#629b36', GradientType=1 );
+*/
 }
+
 
 select {
 	font-size: 14px;
@@ -57,7 +69,10 @@ option:hover {
 }
 #map-canvas {
 	vertical-align: middle;
-	width: 101.2%;
+	position:absolute;
+	left:20px;
+	top:30px;
+	width: 97%;
 	margin-top:10px;
 	height: 570px;
 	margin-left: -7px;
@@ -146,9 +161,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 	opacity:.8;
 	padding:5px;
 
-	
 }
-
 #header {
 
 	margin-left: auto;

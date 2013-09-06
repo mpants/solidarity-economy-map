@@ -16,7 +16,7 @@
 	
 	.reveal-modal {
 		visibility: hidden;
-		top: 100px; 
+		top: 50px; 
 		left: 50%;
 		margin-left: -300px;
 		width: 520px;
