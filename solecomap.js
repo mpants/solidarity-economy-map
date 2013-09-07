@@ -31,7 +31,7 @@ function initialize() {
 	var results2 = document.getElementById('results');
 	var queryphrase = document.getElementById('queryphrase');
 
-	results2.innerHTML = "<br/>Discover local places and groups on the map by the <strong>Need</strong> they meet, the economic <strong>Practices</strong> they participate in, or the <strong>Type</strong> of organization they are.";
+	results2.innerHTML = "";
 
 	//Put all button functions here
 	//Food
@@ -113,7 +113,7 @@ function initialize() {
 	//Zoom to All
 	var zoomall = document.getElementById("zoom-all");
 	zoomall.onclick = function() {
-		zoomToAddress(35.960144, -78.985289, 11, map);
+		zoomToAddress(35.960144, -78.985289, 10, map);
 		infoWindow.close();
 		document.getElementById('in-map-description').style.display = 'none';
 
@@ -179,7 +179,7 @@ function initialize() {
 
 	map = new google.maps.Map(document.getElementById('map-canvas'), {
 		center : new google.maps.LatLng(35.960144, -78.985289),
-		zoom : 11,
+		zoom : 10,
 		mapTypeId : google.maps.MapTypeId.ROADMAP,
 		styles : mapStyles,
 		scrollwheel : true,
@@ -321,7 +321,7 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 	}
 	queryphrase.innerHTML = whatquery;
 
-	document.getElementById('results').innerHTML = "Results - Click the name to zoom to the location.";
+	document.getElementById('results').innerHTML = "";
 	$.ajax({
 		url : url2.join(''),
 		dataType : 'jsonp',

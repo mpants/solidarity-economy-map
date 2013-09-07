@@ -1,29 +1,28 @@
-html { 
-  background: url(http://solidaritypiedmont.org/haw-river.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+html {
+	background: url(http://solidaritypiedmont.org/haw-river.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 body {
 	font-size: 13px;
-	color:#000;
+	color: #000;
 	font-family: 'Armata', sans-serif;
 	overflow-x: hidden;
 	/*
-	background: rgba(98,155,54,1);
-	
-background: -moz-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,155,54,1)), color-stop(8%, rgba(98,155,54,1)), color-stop(79%, rgba(112,177,62,1)), color-stop(100%, rgba(98,155,54,1)));
-background: -webkit-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-background: -o-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-background: -ms-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-background: linear-gradient(to right, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#629b36', endColorstr='#629b36', GradientType=1 );
-*/
-}
+	 background: rgba(98,155,54,1);
 
+	 background: -moz-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+	 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,155,54,1)), color-stop(8%, rgba(98,155,54,1)), color-stop(79%, rgba(112,177,62,1)), color-stop(100%, rgba(98,155,54,1)));
+	 background: -webkit-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+	 background: -o-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+	 background: -ms-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+	 background: linear-gradient(to right, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
+	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#629b36', endColorstr='#629b36', GradientType=1 );
+	 */
+}
 
 select {
 	font-size: 14px;
@@ -38,11 +37,11 @@ select {
 	color: rgb(26,96,86);
 	border: none;
 	outline: none;
-	display: inline-block;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	cursor: pointer;
+	float: left;
 }
 option:hover {
 	background-color: #AAAAAA;
@@ -54,7 +53,7 @@ option:hover {
 	margin-left: auto;
 	margin-right: auto;
 	z-index: 200;
-	}
+}
 .map-buffer {
 	max-height: 300px;
 	height: 30%;
@@ -69,11 +68,11 @@ option:hover {
 }
 #map-canvas {
 	vertical-align: middle;
-	position:absolute;
-	left:20px;
-	top:30px;
+	position: absolute;
+	left: 20px;
+	top: 30px;
 	width: 97%;
-	margin-top:10px;
+	margin-top: 10px;
 	height: 570px;
 	margin-left: -7px;
 	float: left;
@@ -110,6 +109,17 @@ option:hover {
 	padding-right: 10px;
 	padding-left: 10px;
 }
+#map-title {
+	position:absolute;
+	z-index:505;
+	top:0px;
+	left:20px;
+	font-size:15px;
+	background: #fff;
+	opacity: .9;
+	
+	color: rgb(26,96,86);
+}
 #queryphrase {
 	color: #309080;
 	position: absolute;
@@ -121,46 +131,38 @@ option:hover {
 	opacity: .9;
 	border: solid 1px #CCEECC;
 	display: none;
-} 
+}
 #in-map {
 
-	background: rgba(250,179,0,1);
-background: -moz-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,179,0,1)), color-stop(100%, rgba(255,204,20,1)));
-background: -webkit-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: -o-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: -ms-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: linear-gradient(to right, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', endColorstr='#ffcc14', GradientType=1 );color: #fff;
 	position: absolute;
 	z-index: 505;
 	top: 0px;
 	width: 220px;
 	height: 600px;
 	left: 0px;
-	color:#000;
+	color: #000;
 	padding: 10px;
 }
+
 
 #in-map a {
 	text-decoration: none;
 	color: rgb(40, 120, 52);
 }
-  
+
 #in-map-description {
 	z-index: 555;
 	position: absolute;
-	top:350px;
-	left:270px;
-	font-size:.95em;
-	max-height:200px;
-	max-width:900px;
-	overflow-y:auto;
-	width:70%;
-	background:#FFF;
-	opacity:.8;
-	padding:5px;
-
+	top: 350px;
+	left: 270px;
+	font-size: .95em;
+	max-height: 200px;
+	max-width: 900px;
+	overflow-y: auto;
+	width: 70%;
+	background: #FFF;
+	opacity: .8;
+	padding: 5px;
 }
 #header {
 
@@ -281,6 +283,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 	padding-top: 5px;
 }
 
+.navsentence {
+	float: left;
+	font-size: 1.15em;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: #000;
+}
+.navlinks {
+	position: absolute;
+	left: 30px;
+	top: 10px;
+	color: #000;
+	width: 950px;
+	padding: 5px;
+	background: rgb(217, 215, 201);
+	color: #fff;
+}
+
 .navlinks a {
 	color: #FFFA12;
 	text-decoration: none;
@@ -328,7 +348,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 
 #results {
 	float: left;
-	height: 350px;
+	height: 550px;
 	overflow-y: auto;
 	padding-left: 5px;
 	padding-top: 10px;
@@ -336,11 +356,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 
 .name {
 	text-decoration: none;
-	
+	background:#fff;
+	padding:3px;
 }
 
 .name:hover {
-	font-weight:bold;
+	font-weight: bold;
 }
 .name a:visited {
 	text-decoration: none;
