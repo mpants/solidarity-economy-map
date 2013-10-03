@@ -12,6 +12,7 @@ var infoWindow = new google.maps.InfoWindow({
 	pixelOffset : new google.maps.Size(0, -30)
 });
 
+
 function initialize() {
 
 	document.getElementById('in-map-description').style.display = 'none';
@@ -24,7 +25,6 @@ function initialize() {
 	var nameColumn = 'Name';
 	var iconUrlColumn = 'Icon';
 
-	google.maps.visualRefresh = true;
 	initMap(tableId);
 
 	var category = '';
@@ -39,6 +39,7 @@ function initialize() {
 	$('#need-list').change(function() {
 		category = $('#need-list').val();
 		updateCategoryTwo(tableId, locationColumn, category, 'NeedsJoined');
+		typeList(category);
 
 	});
 
@@ -90,6 +91,29 @@ function initialize() {
 		zoomToAddress(35.72015, -79.17724, 14, map);
 		return false;
 	}
+	
+	//Zoom to Greensboro 36.0800° N, 79.8194° W
+	var zoomgreensboro = document.getElementById("zoom-greensboro");
+	zoomgreensboro.onclick = function() {
+		document.getElementById('in-map-description').style.display = 'none';
+
+		infoWindow.close();
+
+		zoomToAddress(36.0800, -79.8194, 12, map);
+		return false;
+	}
+	
+	//Zoom to Raleigh 35.8189° N, 78.6447° W
+	var zoomraleigh = document.getElementById("zoom-raleigh");
+	zoomraleigh.onclick = function() {
+		document.getElementById('in-map-description').style.display = 'none';
+
+		infoWindow.close();
+
+		zoomToAddress(35.8189, -78.64477, 12, map);
+		return false;
+	}
+	
 	//Zoom to Saxapahaw
 	var zoomsaxapahaw = document.getElementById("zoom-saxapahaw");
 	zoomsaxapahaw.onclick = function() {
@@ -180,11 +204,11 @@ function initialize() {
 	map = new google.maps.Map(document.getElementById('map-canvas'), {
 		center : new google.maps.LatLng(35.960144, -78.985289),
 		zoom : 10,
-		mapTypeId : google.maps.MapTypeId.ROADMAP,
-		styles : mapStyles,
+		//styles : mapStyles,
 		scrollwheel : true,
 		noClear : true,
 		mapTypeControl : false,
+		visualRefresh: true,
 		panControl : false,
 		zoomControl : true,
 		zoomControlOptions : {
@@ -192,7 +216,7 @@ function initialize() {
 			position : google.maps.ControlPosition.RIGHT_TOP
 		},
 		scaleControl : false,
-		streetViewControl : false,
+		streetViewControl : true,
 
 	});
 
@@ -215,6 +239,55 @@ function clearMarkers() {
 		}
 	}
 	return false;
+}
+
+function typeList(need) {
+	var types = "Sources:<br/> ";
+	if (need == '')
+	{
+		types = "";
+	}
+	if (need == 'Advocacy')
+	{
+		types += "Non-profits";
+	}
+	if (need == 'Banking')
+	{
+		types += "Credit Unions | NC Plenty | Slow Money | Time Banking";
+	}
+	if (need == 'Clothing')
+	{
+		types += "Businesses | Freecycle | Really Really Free Market | Thrift Stores";
+	}
+	if (need == 'Community')
+	{
+		types += "Community Gardens | Cooperatives | Non-profits | Time Banking";
+	}
+	if (need == 'Energy')
+	{
+		types += "Cooperatives";
+	}
+	if (need == 'Food')
+	{
+		types += "Businesses | Community Gardens | Community Kitchen | Cooperatives | CSAs | Dumpster Diving | Farmers Market | Non-profits";
+	}
+	if (need == 'Goods')
+	{
+		types += "Bartering | Dumpster Diving | Freecycle | Non-profits | Really Really Free Market | Thrift Store | Upcycle Store"; 
+	}
+	if (need == 'Housing')
+	{
+		types += "Co-housing | Community Land Trusts | Cooperatives | Shelters";
+	}
+	if (need == 'Health')
+	{
+		types += "Free Clinics | Non-profits";
+	}
+
+	
+	document.getElementById('map-title').innerHTML = types;
+	return false;
+	
 }
 
 function createMarker(coordinate, url, content, description) {
@@ -351,13 +424,13 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 				a.appendChild(nameElement);
 				a.title = names;
 				a.href = "javascript:void(0)";
-				content = '<div style="float:left;width:200px;"><strong>' + names + '</strong><br/><br/><img width="200" src="' + image + '"/></div>';
-				a.onclick = (function(locations, content, description, provides, practices, website, address, names, type) {
+				content = '<div style="float:left;width:100px;"><strong>' + names + '</strong></div>';
+				a.onclick = (function(locations, content, description, provides, practices, website, address, names, type, image) {
 					return function() {
 						map.setCenter(locations);
 						map.setZoom(14);
-						document.getElementById('in-map-description').innerHTML = "";
-
+						document.getElementById('in-map-description').innerHTML = '<h2>' + names + '</h2><p><strong>' + type + '</strong></p><img width="200" src="' + image + '"/><p>' + address + ' - <a href="' + website + '">' + website + '</a></p>' + '<p><strong>Provides:</strong> ' + provides + '</p><p><strong>Practices:</strong> ' + practices + '</p>';
+		                /*
 						var titleElement = document.createElement('p');
 						titleElement.innerHTML = '<div style="float:left;width:70%;"><h2>' + names + '</h2></div><div style="float:right;width:20%;"><strong>' + type + '</strong></div><div style="clear:both;"></div>';
 						titleElement.className = 'title';
@@ -389,7 +462,7 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 						infoWindow.open(map);
 						return false;
 					};
-				})(locations, content, description, provides, practices, website, address, names, type);
+				})(locations, content, description, provides, practices, website, address, names, type, image);
 
 				dataElement.appendChild(a);
 				document.getElementById('results').appendChild(dataElement);
@@ -406,13 +479,13 @@ function codeAddress(locations, names, icons, description, address, website, ima
 	//Function called to create markers with custom icons and locations
 	if (icons) {// ensure not empty
 		var iconurl = (BASE_URL + icons);
-		content = '<div style="float:left;width:200px;"><strong>' + names + '</strong><br/><br/><img width="200" src="' + image + '"/></div>';
-		description = '<p><div style="float:left;"><h2>' + names + '</h2></div><div style="float:right;"><strong>' + type + '</strong></div><div style="clear:both;"></div></p><p>' + address + ' - <a href="' + website + '">' + website + '</a></p>' + '<p><strong>Provides:</strong> ' + provides + '</p><p><strong>Practices:</strong> ' + practices + '</p>';
+		content = '<div style="float:left;width:100px;"><strong>' + names + '</strong></div>';
+		description = '<h2>' + names + '</h2><p><strong>' + type + '</strong></p><img width="200" src="' + image + '"/><p>' + address + ' - <a href="' + website + '">' + website + '</a></p>' + '<p><strong>Provides:</strong> ' + provides + '</p><p><strong>Practices:</strong> ' + practices + '</p>';
 
 		createMarker(locations, iconurl, content, description);
 	} else {
-		content = '<div style="float:left;width:200px;"><strong>' + names + '</strong><br/><br/><img width="200" src="' + image + '"/></div>';
-		description = '<p><div style="float:left;"><h2>' + names + '</h2></div><div style="float:right;"><strong>' + type + '</strong></div><div style="clear:both;"></div></p><p>' + address + ' - <a href="' + website + '">' + website + '</a></p>' + '<p><strong>Provides:</strong> ' + provides + '</p><p><strong>Practices:</strong> ' + practices + '</p>';
+		content = '<div style="float:left;width:100px;"><strong>' + names + '</strong></div>';
+		description = '<h2>' + names + '</h2><p><strong>' + type + '</strong></p><img width="200" src="' + image + '"/><p>' + address + ' - <a href="' + website + '">' + website + '</a></p>' + '<p><strong>Provides:</strong> ' + provides + '</p><p><strong>Practices:</strong> ' + practices + '</p>';
 
 		createMarker(locations, DEFAULT_ICON_URL, content, description);
 	}
@@ -427,4 +500,5 @@ function zoomToAddress(mylat, mylong, zoom, map) {
 	return false;
 };
 
+google.maps.visualRefresh = true;
 google.maps.event.addDomListener(window, 'load', initialize);

@@ -24,10 +24,15 @@ body {
 	 */
 }
 
+#header-logo {
+	margin-right: -2px;
+	margin-top: -2px;
+	float: right;
+}
 select {
 	font-size: 15px;
-	line-height:17px;
-	width: 120px;
+	line-height: 17px;
+	width: 150px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -71,7 +76,7 @@ option:hover {
 	vertical-align: middle;
 	position: absolute;
 	left: 20px;
-	top: 30px;
+	top: 40px;
 	width: 97%;
 	margin-top: 10px;
 	height: 570px;
@@ -111,14 +116,16 @@ option:hover {
 	padding-left: 10px;
 }
 #map-title {
-	position:absolute;
-	z-index:505;
-	top:0px;
-	left:18px;
-	font-size:15px;
+	position: absolute;
+	z-index: 505;
+	top: 0px;
+	height:38px;
+	left: 2px;
+	padding-right:10px;
+	padding-left:5px;
+	padding-top:2px;
+	font-size: 13px;
 	background: #fff;
-	opacity: .9;
-	
 	color: rgb(26,96,86);
 }
 #queryphrase {
@@ -137,14 +144,12 @@ option:hover {
 
 	position: absolute;
 	z-index: 505;
-	top: 45px;
+	top: 35px;
 	width: 220px;
 	height: 510px;
 	left: 0px;
 	color: #000;
-	padding: 10px;
 }
-
 
 #in-map a {
 	text-decoration: none;
@@ -154,16 +159,17 @@ option:hover {
 #in-map-description {
 	z-index: 555;
 	position: absolute;
-	top: 350px;
-	left: 270px;
 	font-size: .95em;
-	max-height: 200px;
-	max-width: 900px;
 	overflow-y: auto;
-	width: 70%;
-	background: #FFF;
-	opacity: .8;
-	padding: 5px;
+	width: 300px;
+	height: 100%;
+	right: 0px;
+	top: 0px;
+	background-color: #fff;
+	color: #000;
+	border: solid 1px #000;
+	opacity: .9;
+	padding: 10px;
 }
 #header {
 
@@ -294,18 +300,18 @@ option:hover {
 .navlinks {
 	position: absolute;
 	left: 30px;
-	top: 10px;
+	top: 20px;
 	color: #000;
-	width: 950px;
-	padding: 5px;background: rgba(250,179,0,1);
-background: -moz-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,179,0,1)), color-stop(100%, rgba(255,204,20,1)));
-background: -webkit-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: -o-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: -ms-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-background: linear-gradient(to right, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', endColorstr='#ffcc14', GradientType=1 );color: #fff;
-
+	padding: 5px;
+	background: rgba(250,179,0,1);
+	background: -moz-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,179,0,1)), color-stop(100%, rgba(255,204,20,1)));
+	background: -webkit-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+	background: -o-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+	background: -ms-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+	background: linear-gradient(to right, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', endColorstr='#ffcc14', GradientType=1 );
+	color: #fff;
 	color: #fff;
 }
 
@@ -348,7 +354,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
 	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
 	padding-left: 10px;
-	padding-top: 15px;
+	padding-top: 5px;
 	padding-bottom: 10px;
 	padding-right: 10px;
 	width: 620px;
@@ -356,26 +362,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', end
 
 #results {
 	float: left;
-	height: 350px;
+	height: 520px;
 	overflow-y: auto;
 	padding-left: 5px;
-	padding-top: 10px;
+	margin-top:5px;
+	border-top: 1px solid #000;
+	background-color:#fff;
+	
 }
 #under-results {
-	float:left;
-	height:250px;
-	padding-left:5px;
-	padding-top:10px;
-	z-index:555;
-	background:#fff;
-	opacity:.9;
-	height:200px;
+	float: left;
+	padding-left: 5px;
+	padding-top: 5px;
+	z-index: 555;
+	background-color: #fff;
+	margin-bottom: 5px;
+	opacity: .9;
 }
 
 .name {
 	text-decoration: none;
-	background:#fff;
-	padding:3px;
+	background: #fff;
+	padding: 3px;
 }
 
 .name:hover {
