@@ -5,7 +5,6 @@ var currentneed = "";
 var DEFAULT_ICON_URL = 'http://solidaritypiedmont.org/icons/flower.png';
 var BASE_URL = "http://solidaritypiedmont.org/icons/";
 var results2 = document.getElementById('results');
-var descwindow = document.getElementById('in-map-description');
 var markers = [];
 var infoWindow = new google.maps.InfoWindow({
 	maxWidth : 700,
@@ -32,10 +31,22 @@ function initialize() {
 	var queryphrase = document.getElementById('queryphrase');
 
 	results2.innerHTML = "";
+	$('#in-map').hide();
 
-	//Put all button functions here
+	//Close button for description window
+	$('#in-map-description-close').click(function() {
+    	document.getElementById('in-map-description').style.display = 'none';
+		infoWindow.close();
+    });
+	//Close button for results window
+	$('#results-description-close').click(function() {
+    	$('#in-map').hide();
+		infoWindow.close();
+    });
+    
+    //Put all button functions here
 	//Food
-
+    
 	$('#need-list').change(function() {
 		category = $('#need-list').val();
 		updateCategoryTwo(tableId, locationColumn, category, 'NeedsJoined');
@@ -46,6 +57,7 @@ function initialize() {
 	$('#practice-list').change(function() {
 		category = $('#practice-list').val();
 		updateCategoryTwo(tableId, locationColumn, category, 'PracticesJoined');
+		typeList(category);
 
 	});
 
@@ -62,7 +74,7 @@ function initialize() {
 		zoomToAddress(35.910186, -79.075127, 14, map);
 
 		return false;
-	}
+	};
 	//Zoom to Chapel Hill
 	var zoomchapelhill = document.getElementById("zoom-chapelhill");
 	zoomchapelhill.onclick = function() {
@@ -70,7 +82,7 @@ function initialize() {
 		infoWindow.close();
 		zoomToAddress(35.913245, -79.055901, 12, map);
 		return false;
-	}
+	};
 	//Zoom to Durham
 	var zoomdurham = document.getElementById("zoom-durham");
 	zoomdurham.onclick = function() {
@@ -80,7 +92,7 @@ function initialize() {
 
 		zoomToAddress(35.994033, -78.89861, 12, map);
 		return false;
-	}
+	};
 	//Zoom to Pittsboro
 	var zoompittsboro = document.getElementById("zoom-pittsboro");
 	zoompittsboro.onclick = function() {
@@ -90,7 +102,7 @@ function initialize() {
 
 		zoomToAddress(35.72015, -79.17724, 14, map);
 		return false;
-	}
+	};
 	
 	//Zoom to Greensboro 36.0800° N, 79.8194° W
 	var zoomgreensboro = document.getElementById("zoom-greensboro");
@@ -101,7 +113,7 @@ function initialize() {
 
 		zoomToAddress(36.0800, -79.8194, 12, map);
 		return false;
-	}
+	};
 	
 	//Zoom to Raleigh 35.8189° N, 78.6447° W
 	var zoomraleigh = document.getElementById("zoom-raleigh");
@@ -112,7 +124,7 @@ function initialize() {
 
 		zoomToAddress(35.8189, -78.64477, 12, map);
 		return false;
-	}
+	};
 	
 	//Zoom to Saxapahaw
 	var zoomsaxapahaw = document.getElementById("zoom-saxapahaw");
@@ -123,7 +135,7 @@ function initialize() {
 
 		zoomToAddress(35.947361, -79.321962, 14, map);
 		return false;
-	}
+	};
 	//Zoom to Hillsborough
 	var zoomhillsborough = document.getElementById("zoom-hillsborough");
 	zoomhillsborough.onclick = function() {
@@ -133,7 +145,7 @@ function initialize() {
 
 		zoomToAddress(36.07542, -79.09973, 14, map);
 		return false;
-	}
+	};
 	//Zoom to All
 	var zoomall = document.getElementById("zoom-all");
 	zoomall.onclick = function() {
@@ -142,69 +154,28 @@ function initialize() {
 		document.getElementById('in-map-description').style.display = 'none';
 
 		return false;
-	}
-	var mapStyles = [{
-
-		featureType : "landscape",
-		elementType : "geometry",
-		stylers : [{
-			visibility : "on"
-		}, {
-			lightness : 80
-		}, {
-			gamma : 9.99
-		}]
-	}, {
-		featureType : "road.arterial",
-		stylers : [{
-			visibility : "simplified"
-		}, {
-			saturation : -95
-		}, {
-			lightness : 26
-		}]
-	}, {
-		featureType : "transit",
-		stylers : [{
-			visibility : "off"
-		}]
-	}, {
-		featureType : "poi",
-		stylers : [{
-			visibility : "off"
-		}]
-	}, {
-		featureType : "road.local",
-		stylers : [{
-			visibility : "on"
-		}, {
-			lightness : 10
-		}]
-	}, {
-		featureType : "road.highway",
-		stylers : [{
-			visibility : "off"
-		}]
-	}, {
-		featureType : "administrative.neighborhood",
-		stylers : [{
-			visibility : "on"
-		}]
-	}, {
-		featureType : "water",
-		stylers : [{
-			visibility : "simplified"
-		}, {
-			saturation : -5
-		}, {
-			lightness : 47
-		}]
-	}];
+	};
+	var mapStyles = [
+	{
+	featureType: 'landscape.natural',  
+        elementType: 'all',  
+        stylers: [  
+            { hue: '#809f80' },  
+            { lightness: -25 }  
+        ]  
+	}, {  
+        featureType: 'water',  
+        elementType: 'geometry.fill',  
+        stylers: [  
+            { color: '#adc9b8' }  
+        ]  
+    },{ "featureType": "road.highway", "stylers": [ { "visibility": "simplified" }, { "saturation": -66 }, { "lightness": 34 } ] },{ "featureType": "road.arterial", "stylers": [ { "visibility": "simplified" }, { "saturation": -65 }, { "lightness": 34 } ] },{ "featureType": "poi", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] }
+	];
 
 	map = new google.maps.Map(document.getElementById('map-canvas'), {
 		center : new google.maps.LatLng(35.960144, -78.985289),
 		zoom : 10,
-		//styles : mapStyles,
+		styles : mapStyles,
 		scrollwheel : true,
 		noClear : true,
 		mapTypeControl : false,
@@ -240,50 +211,63 @@ function clearMarkers() {
 	}
 	return false;
 }
-
-function typeList(need) {
+function typeList(selection) {
 	var types = "Sources:<br/> ";
-	if (need == '')
+	if (selection == '')
 	{
 		types = "";
 	}
-	if (need == 'Advocacy')
+	if (selection == 'advocacy')
 	{
 		types += "Non-profits";
 	}
-	if (need == 'Banking')
+	if (selection == 'banking')
 	{
 		types += "Credit Unions | NC Plenty | Slow Money | Time Banking";
 	}
-	if (need == 'Clothing')
+	if (selection == 'clothing')
 	{
 		types += "Businesses | Freecycle | Really Really Free Market | Thrift Stores";
 	}
-	if (need == 'Community')
+	if (selection == 'community')
 	{
 		types += "Community Gardens | Cooperatives | Non-profits | Time Banking";
 	}
-	if (need == 'Energy')
+	if (selection == 'energy')
 	{
 		types += "Cooperatives";
 	}
-	if (need == 'Food')
+	if (selection == 'food')
 	{
 		types += "Businesses | Community Gardens | Community Kitchen | Cooperatives | CSAs | Dumpster Diving | Farmers Market | Non-profits";
 	}
-	if (need == 'Goods')
+	if (selection == 'goods')
 	{
 		types += "Bartering | Dumpster Diving | Freecycle | Non-profits | Really Really Free Market | Thrift Store | Upcycle Store"; 
 	}
-	if (need == 'Housing')
+	if (selection == 'housing')
 	{
 		types += "Co-housing | Community Land Trusts | Cooperatives | Shelters";
 	}
-	if (need == 'Health')
+	if (selection == 'health')
 	{
 		types += "Free Clinics | Non-profits";
 	}
-
+	
+	//BEGIN LIST OF PRACTICES
+	if (selection == 'currencies')
+	{
+		types += "Businesses | Cooperatives";
+	}
+	if (selection == 'bcorporation')
+	{
+		types += "Cooperatives";
+	}
+	if (selection == 'barter')
+	{
+		types += "Barter Networks | Cooperatives | Non-Profits";
+	}
+	
 	
 	document.getElementById('map-title').innerHTML = types;
 	return false;
@@ -303,11 +287,11 @@ function createMarker(coordinate, url, content, description) {
 	google.maps.event.addListener(marker, 'click', function(event) {
 		//COordinate = LATLNG object
 		map.setCenter(coordinate);
-		document.getElementById('in-map-description').innerHTML = "";
+		document.getElementById('in-map-description-content').innerHTML = "";
 		var descElement = document.createElement('p');
 		descElement.innerHTML = description;
 		descElement.className = 'description';
-		document.getElementById('in-map-description').appendChild(descElement);
+		document.getElementById('in-map-description-content').appendChild(descElement);
 		document.getElementById('in-map-description').style.display = 'inline';
 
 		infoWindow.setPosition(coordinate);
@@ -381,6 +365,7 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 	url2.push('?sql=' + encodedlistquery);
 	url2.push('&key=AIzaSyDkbZmlojVJ6CVwF5W4BGLwf4tbcouNlt4');
 	url2.push('&callback=?');
+	/*
 	whatquery = "";
 	if (currentneed != "") {
 		whatquery += "I'm looking for " + currentneed;
@@ -392,7 +377,8 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 		}
 
 	}
-	queryphrase.innerHTML = whatquery;
+	*/
+	//queryphrase.innerHTML = whatquery;
 
 	document.getElementById('results').innerHTML = "";
 	$.ajax({
@@ -429,7 +415,7 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 					return function() {
 						map.setCenter(locations);
 						map.setZoom(14);
-						document.getElementById('in-map-description').innerHTML = '<h2>' + names + '</h2><p><strong>' + type + '</strong></p><img width="200" src="' + image + '"/><p>' + address + ' - <a href="' + website + '">' + website + '</a></p>' + '<p><strong>Provides:</strong> ' + provides + '</p><p><strong>Practices:</strong> ' + practices + '</p>';
+						document.getElementById('in-map-description-content').innerHTML = '<h2>' + names + '</h2><p><strong>' + type + '</strong></p><img width="200" src="' + image + '"/><p>' + address + ' - <a href="' + website + '">' + website + '</a></p>' + '<p><strong>Provides:</strong> ' + provides + '</p><p><strong>Practices:</strong> ' + practices + '</p>';
 		                /*
 						var titleElement = document.createElement('p');
 						titleElement.innerHTML = '<div style="float:left;width:70%;"><h2>' + names + '</h2></div><div style="float:right;width:20%;"><strong>' + type + '</strong></div><div style="clear:both;"></div>';
@@ -465,8 +451,20 @@ function updateCategoryTwo(tableId, locationColumn, category, sortby) {
 				})(locations, content, description, provides, practices, website, address, names, type, image);
 
 				dataElement.appendChild(a);
-				document.getElementById('results').appendChild(dataElement);
-
+				
+				if(currentneed == '' && currentpractice == '')
+				{
+					$('#in-map').hide();
+				}
+				
+				else
+				{
+					document.getElementById('results').appendChild(dataElement);
+					$('#in-map').show();
+				}
+					
+			
+				
 			}
 			dataElement = "";
 		}

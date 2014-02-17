@@ -1,30 +1,52 @@
-html {
+﻿html {
 
 }
 
 body {
-	font-size: 13px;
-	color: #000;
-	font-family: 'Armata', sans-serif;
-	overflow-x: hidden;
-	/*
-	 background: rgba(98,155,54,1);
+	
 
-	 background: -moz-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-	 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(98,155,54,1)), color-stop(8%, rgba(98,155,54,1)), color-stop(79%, rgba(112,177,62,1)), color-stop(100%, rgba(98,155,54,1)));
-	 background: -webkit-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-	 background: -o-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-	 background: -ms-linear-gradient(left, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-	 background: linear-gradient(to right, rgba(98,155,54,1) 0%, rgba(98,155,54,1) 8%, rgba(112,177,62,1) 79%, rgba(98,155,54,1) 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#629b36', endColorstr='#629b36', GradientType=1 );
-	 */
+	 font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+background-color: #90Af90;
 }
 
+
 /* APPLIES TO INTRO PAGE ONLY */
+.non-map-page
+{
+background: url(../images/piedmont-watercolor.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height:1028px;
+  overflow-y:auto;
+  }
+  
+
 .splash-text
 {
+	margin-top:90px;
+	margin-bottom:50px;
+	font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+	max-width: 725px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:rgba(240,240,240,.8);
+	padding: 10px 25px 25px 25px;
+}
+
+.splash-text p
+  {
+   text-shadow: 0 0 0.1em #FFF;   
+   font-size:1.25em;
+  }
+  
+.splash-text h1
+{
+    margin-bottom:10px;
 	text-align:center;
-	padding-top:50px;
+	font-weight:bold;
+   text-shadow: 0 0 0.1em #FFF;  
 }
 
 /* APPLIES TO MAP PAGE */
@@ -34,9 +56,9 @@ body {
 	float: right;
 }
 select {
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 17px;
-	width: 150px;
+	width: 160px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -56,49 +78,21 @@ select {
 option:hover {
 	background-color: #AAAAAA;
 }
-#wrapper {
 
-	vertical-align: middle;
-	min-width: 580px;
-	margin-left: auto;
-	margin-right: auto;
-	z-index: 200;
-}
-.map-buffer {
-	max-height: 300px;
-	height: 30%;
-}
 
-#header-links {
-	float: right;
-	font-size: 14px;
-	color: #000;
-	background: #FFF;
-	opacity: .8;
-}
 #map-canvas {
 	width: 100%;
-	height: 570px;
+	min-height: 500px;
+	position:absolute;
+	left:0px;
 	border-top: 2px solid #777;
 	border-bottom: 2px solid #777;
 	border-right: 1px solid #777;
 	border-left: 1px solid #777;
 	z-index: 500;
-	border: 0px solid #000000;
+	height:80%;
 }
 
-#top-text {
-	color: #000;
-	position: absolute;
-	z-index: 505;
-	top: 0px;
-	left: 0px;
-	font-size: 15px;
-	padding-left: 10px;
-	padding-right: 10px;
-	background: #fff;
-	opacity: .8;
-}
 #map-links {
 	color: #000;
 	position: absolute;
@@ -112,39 +106,32 @@ option:hover {
 	padding-left: 10px;
 }
 #map-title {
+    font-family:'Open Sans',Helvetica,Arial,sans-serif;
 	position: absolute;
 	z-index: 505;
 	top: 0px;
 	height:38px;
 	left: 2px;
-	padding-right:10px;
 	padding-left:5px;
 	padding-top:2px;
 	font-size: 13px;
 	background: #fff;
 	color: rgb(26,96,86);
 }
-#queryphrase {
-	color: #309080;
-	position: absolute;
-	z-index: 505;
-	top: 60px;
-	left: 430px;
-	font-size: 14px;
-	background: #fff;
-	opacity: .9;
-	border: solid 1px #CCEECC;
-	display: none;
-}
+
 #in-map {
 
 	position: absolute;
 	z-index: 505;
-	top: 35px;
-	width: 220px;
-	height: 510px;
+	top:-6px;
+	min-width: 220px;
+	width:22%;
+	height:101%;
+	min-height: 510px;
 	left: 0px;
 	color: #000;
+	background-color:#fff;
+	border-right:solid 1px #666;
 }
 
 #in-map a {
@@ -157,44 +144,31 @@ option:hover {
 	position: absolute;
 	font-size: .95em;
 	overflow-y: auto;
-	width: 300px;
+	min-width: 300px;
+	width: 22%;
 	height: 100%;
 	right: 0px;
 	top: 0px;
 	background-color: #fff;
 	color: #000;
-	border: solid 1px #000;
+	border-left: solid 1px #666;
 	opacity: .9;
 	padding: 10px;
 }
-#header {
 
-	margin-left: auto;
-	margin-right: auto;
-	width: 98%;
-	max-width: 1100px;
-	color: #fff;
-	height: 14px;
-}
-
-#headertext {
-	float: left;
-	min-width: 290px;
-	font-size: 14px;
-	margin-left: 30px;
-	margin-bottom: 5px;
-	padding: 7px;
-	color: #000;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 0px solid #000000;
-	background-color: #cec;
-	background-url: http ://api.thumbr.it/whitenoise-361x370.png?background=#cceeccff&noise=cccacc&density=29&opacity=41;
-	-webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-}
+.close-button 
+{
+font-size: 18px;
+		line-height: .5;
+		position: absolute;
+		
+		top: 13px;
+		right: 11px;
+		color: #555;
+		text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+		font-weight: bold;
+		cursor: pointer;
+		}
 
 #tagline {
 	font-size: 15px;
@@ -208,36 +182,6 @@ option:hover {
 	text-decoration: none;
 }
 
-.about {
-	float: left;
-	min-width: 200px;
-	font-size: 10px;
-	width: 31%;
-	font-weight: bold;
-}
-
-.about a {
-	color: #FFFA12;
-	text-decoration: none;
-}
-
-#citynav {
-	float: right;
-	min-width: 420px;
-	font-size: 12px;
-	padding: 7px;
-	margin-bottom: 10px;
-	margin-top: 23px;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 0px solid #000000;
-	-webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	background: #208070;
-}
-
 #main {
 	clear: both;
 	padding-top: 10px;
@@ -249,29 +193,12 @@ option:hover {
 	z-index: 200;
 }
 
-#main-nav {
+.map-nav {
 	color: #fff;
-	float: left;
-	width: 400px;
-	padding-left: 10px;
-	padding-right: 0px;
-	padding-bottom: 10px;
-	margin-bottom: 20px;
-	margin-right: 50px;
 	z-index: 506;
-	position: absolute;
-	top: 570px;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 0px solid #000000;
-	-webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	-moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	box-shadow: 2px 2px 8px 0px rgba(0,0,0,1);
-	background: #208070;
-}
-#nav-container {
-	height: 190px;
+	padding-top:10px;
+	padding-bottom:10px;
+	background: #FFCF1F;
 }
 
 #nav-label-top {
@@ -288,28 +215,13 @@ option:hover {
 
 .navsentence {
 	float: left;
-	font-size: 1.15em;
+	font-size: 1.1em;
 	padding-left: 5px;
 	padding-right: 5px;
 	color: #000;
 }
 .navlinks {
-	position: fixed;
-	width:100%;
-	height:60px;
-	top: 50px;
-	color: #000;
-	padding: 5px;
-	background: rgba(250,179,0,1);
-	background: -moz-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,179,0,1)), color-stop(100%, rgba(255,204,20,1)));
-	background: -webkit-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-	background: -o-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-	background: -ms-linear-gradient(left, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-	background: linear-gradient(to right, rgba(250,179,0,1) 0%, rgba(255,204,20,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab300', endColorstr='#ffcc14', GradientType=1 );
-	color: #fff;
-	color: #fff;
+	
 }
 
 .navlinks a {
@@ -359,12 +271,11 @@ option:hover {
 
 #results {
 	float: left;
-	height: 520px;
+	height: 100%;
 	overflow-y: auto;
 	padding-left: 5px;
+	padding-top:10px;
 	margin-top:5px;
-	border-top: 1px solid #000;
-	background-color:#fff;
 	
 }
 #under-results {
@@ -379,21 +290,21 @@ option:hover {
 
 .name {
 	text-decoration: none;
-	background: #fff;
-	padding: 3px;
+	font-family:'Open Sans',Helvetica,Arial,sans-serif;
+	padding-left: 3px;
+	padding-down: 3px;
+	padding-up: 3px;
+	padding-right: 10px;
+	
 }
 
-.name:hover {
-	font-weight: bold;
-}
 .name a:visited {
 	text-decoration: none;
 }
 .name a:active {
 	text-decoration: none;
 }
-.name a:hover {
-	text-decoration: none;
-	font-weight: bold;
+.name:hover {
+	color:#489854;
 }
 
