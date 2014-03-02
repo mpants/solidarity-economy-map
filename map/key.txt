@@ -1,0 +1,38 @@
+Needs:
+
+advocacy
+banking (+finance)
+childcare
+clothing
+community
+support (emotional)
+energy
+food
+goods (+shopping)
+housing (+land)
+health
+internet
+learn (learning)
+media (+news)
+play
+transport
+
+Practices:
+
+currencies (accepting local)
+bcorporation 
+barter (+timebank)
+commons (contributes to)
+egalitarian (decision making)
+cooperative (ownership)
+pricing (flexible or fair)
+free (+gift)
+livingwage
+sourcingfood
+sourcinggoods
+localownership
+notforprofit
+communityspace
+reuse
+justice (social + diversity)
+sustainable

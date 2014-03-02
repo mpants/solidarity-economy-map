@@ -50,21 +50,17 @@ function initialize() {
 	$('#need-list').change(function() {
 		category = $('#need-list').val();
 		updateCategoryTwo(tableId, locationColumn, category, 'NeedsJoined');
-		typeList(category);
+		
 
 	});
 
 	$('#practice-list').change(function() {
 		category = $('#practice-list').val();
 		updateCategoryTwo(tableId, locationColumn, category, 'PracticesJoined');
-		typeList(category);
+		
 
 	});
 
-	$('#type-list').change(function() {
-		category = $('#type-list').val();
-		updateCategoryTwo(tableId, locationColumn, category, 'TypesJoined');
-	});
 
 	//Zoom to Carrboro
 	var zoomcarrboro = document.getElementById("zoom-carrboro");
@@ -184,7 +180,7 @@ function initialize() {
 		zoomControl : true,
 		zoomControlOptions : {
 			style : google.maps.ZoomControlStyle.SMALL,
-			position : google.maps.ControlPosition.RIGHT_TOP
+			position : google.maps.ControlPosition.BOTTOM_CENTER
 		},
 		scaleControl : false,
 		streetViewControl : true,
@@ -210,68 +206,6 @@ function clearMarkers() {
 		}
 	}
 	return false;
-}
-function typeList(selection) {
-	var types = "Sources:<br/> ";
-	if (selection == '')
-	{
-		types = "";
-	}
-	if (selection == 'advocacy')
-	{
-		types += "Non-profits";
-	}
-	if (selection == 'banking')
-	{
-		types += "Credit Unions | NC Plenty | Slow Money | Time Banking";
-	}
-	if (selection == 'clothing')
-	{
-		types += "Businesses | Freecycle | Really Really Free Market | Thrift Stores";
-	}
-	if (selection == 'community')
-	{
-		types += "Community Gardens | Cooperatives | Non-profits | Time Banking";
-	}
-	if (selection == 'energy')
-	{
-		types += "Cooperatives";
-	}
-	if (selection == 'food')
-	{
-		types += "Businesses | Community Gardens | Community Kitchen | Cooperatives | CSAs | Dumpster Diving | Farmers Market | Non-profits";
-	}
-	if (selection == 'goods')
-	{
-		types += "Bartering | Dumpster Diving | Freecycle | Non-profits | Really Really Free Market | Thrift Store | Upcycle Store"; 
-	}
-	if (selection == 'housing')
-	{
-		types += "Co-housing | Community Land Trusts | Cooperatives | Shelters";
-	}
-	if (selection == 'health')
-	{
-		types += "Free Clinics | Non-profits";
-	}
-	
-	//BEGIN LIST OF PRACTICES
-	if (selection == 'currencies')
-	{
-		types += "Businesses | Cooperatives";
-	}
-	if (selection == 'bcorporation')
-	{
-		types += "Cooperatives";
-	}
-	if (selection == 'barter')
-	{
-		types += "Barter Networks | Cooperatives | Non-Profits";
-	}
-	
-	
-	document.getElementById('map-title').innerHTML = types;
-	return false;
-	
 }
 
 function createMarker(coordinate, url, content, description) {
